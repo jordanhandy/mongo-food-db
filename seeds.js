@@ -23,4 +23,8 @@ const seedProducts = [
     {name: "Tomato", price:"7.99",category:"fruit"}
 ];
 
-Product.insertMany(seedProducts);
+Product.insertMany(seedProducts).then(res=>{
+    console.log(res);
+}).catch((e)=>{
+    console.log(e);
+});
