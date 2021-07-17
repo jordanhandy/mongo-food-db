@@ -27,8 +27,12 @@ app.get('/products/:id',async(req,res)=>{
     res.render('products/details',{
         product:product
     })
-
 })
+
+app.get('/products/new',(req,res)=>{
+    res.render('products/new');
+})
+
 app.listen(3000,()=>{
     console.log('listening on port 3000');
 })
