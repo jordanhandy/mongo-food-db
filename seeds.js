@@ -15,7 +15,12 @@ p.save().then(()=>{
     console.log("error");
     console.log(e);
 })
-// const q = new Product({name: "Squash", price:"15.99",category:"vegetable"});
-// const r = new Product({name: "Mangoes", price:"5.99",category:"fruit"});
-// const s = new Product({name: "Milk", price:"6.99",category:"dairy"});
-// const t = new Product({name: "Tomato", price:"7.99",category:"fruit"});
+
+const seedProducts = [
+    {name: "Squash", price:"15.99",category:"vegetable"},
+    {name: "Mangoes", price:"5.99",category:"fruit"},
+    {name: "Milk", price:"6.99",category:"dairy"},
+    {name: "Tomato", price:"7.99",category:"fruit"}
+];
+
+Product.insertMany(seedProducts);
