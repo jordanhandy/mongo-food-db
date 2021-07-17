@@ -12,7 +12,8 @@ const productSchema = new mongoose.Schema({
     },
     category:{
         type: String,
-        enum: ['fruit','vegetable','dairy']
+        enum: ['fruit','vegetable','dairy'],
+        lowercase:true
     }
 })
 const Product = mongoose.model('Product',productSchema);
