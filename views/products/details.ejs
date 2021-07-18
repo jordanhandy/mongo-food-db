@@ -9,7 +9,7 @@
     <p>This is the page for the product:  <%= product.name %> <br>
     Here are its properties: <br>
    <b>Price: </b><%= product.price %> <br>
-   <b>Category: </b><%= product.category %> </p>
+   <b>Category: </b><span class="ui label"><a href="/products?category=<%= product.category %>"><%= product.category %></a></span></p>
    <br>
     Something wrong with my data? <a href="/products/<%= product._id %>/edit"><button class="ui blue button">Edit the Product</button></a></p><br>
     <form action="/products/<%= product._id %>/delete?_method=DELETE" method="POST">
