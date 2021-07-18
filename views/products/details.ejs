@@ -10,8 +10,8 @@
    <b>Category: </b><%= product.category %> </p>
    <br>
    <p><a href="/products">GO BACK HOME</a><br>
-    Something wrong with my data? <a href="/products/<%= product._id %>/edit"> UPDATE ME HERE</a></p><br>
+    Something wrong with my data? <a href="/products/<%= product._id %> /edit"><button class="ui blue button">Edit the Product</button></a><br>
     <form action="/products/<%= product._id %>/delete?_method=DELETE" method="POST">
        <p>If you don't like me, you can DELETE ME</p>
-       <button type="submit">Delete Product</button>
+       <button type="submit"class="ui red button">Delete Product</button>
 <%- include('../partials/footer') %> 
