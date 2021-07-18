@@ -5,23 +5,26 @@
   </head>
   <body>
     <h1>Edit the <%= product.name %> Product</h1>
-    <form action="/products/<%= product._id %>?_method=PUT" method="post">
+    <form class="ui form" action="/products/<%= product._id %>?_method=PUT" method="post">
+      <div class="field">
       <label for="name">Product Name</label>
       <input
         type="text"
         name="name"
         id="name"
         value="<%= product.name %>"
-      />
+      /></div>
+      <div class="field">
       <label for="price">Unit Price</label>
-      <input type="number" name="price" id="price" step=".01" value="<%= product.price %>" />
+      <input type="number" name="price" id="price" step=".01" value="<%= product.price %>" /></div>
+      <div class="field">
       <label for="category">Select a Category</label>
       <select name="category" id="category">
         <option value="fruit" <%= product.category === "fruit" ? 'selected': ''%>>fruit</option>
         <option value="vegetable" <%= product.category === "vegetable" ? 'selected': ''%>>vegetable</option>
         <option value="dairy" <%= product.category === "dairy" ? 'selected': ''%>>dairy</option>
-      </select>
-      <button type="submit">Edit this Product</button>
+      </select></div>
+      <button class="ui blue button" type="submit">Edit this Product</button>
     </form>
   </div>
 </div>
