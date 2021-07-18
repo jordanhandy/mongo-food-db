@@ -48,6 +48,18 @@ app.post('/products',async (req,res)=>{
     res.redirect(`/products/${product._id}`); // Redirect to specific page for created product
 })
 
+app.post('/products/:id',async (req,res)=>{
+    const product = await Product.findById(req.params.id);
+    product.name = req.body.name;
+    product.price = req.body.price;
+    product.category = req.body.category;
+    await product.save().then((res)=>{
+        console.log('edit has been saved');
+    });
+    res.redirect(`/products/${product._id}`);
+
+})
+
 app.listen(3000,()=>{
     console.log('listening on port 3000');
 })
