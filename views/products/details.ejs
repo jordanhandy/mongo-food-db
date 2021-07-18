@@ -15,6 +15,8 @@
    <br>
    <p><a href="/products">GO BACK HOME</a><br>
     Something wrong with my data? <a href="/products/<%= product._id %>/edit"> UPDATE ME HERE</a></p><br>
-    If you don't like me, you can <a href="/products/<%= product._id %>/delete">DELETE ME</a>
+    <form action="/products/<%= product._id %>/delete?_method=DELETE" method="POST">
+       <p>If you don't like me, you can DELETE ME</p>
+       <button type="submit">Delete Product</button>
 </body>
 </html>
