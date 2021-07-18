@@ -42,7 +42,7 @@ app.post('/products',async (req,res)=>{
     await product.save().then((res)=>{
         console.log('saved');
     })
-    res.redirect('/products');
+    res.redirect(`/products/${product._id}`); // Redirect to specific page for created product
 })
 
 app.listen(3000,()=>{
