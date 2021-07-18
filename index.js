@@ -62,9 +62,12 @@ app.put('/products/:id',async (req,res)=>{
 
 })
 app.delete('/products/:id/delete',async(req,res)=>{
-    Product.findByIdAndDelete(req.params.id);
-    console.log('deleted!');
-    res.redirect('/products');
+    const foundProduct = await Product.findByIdAndDelete(req.params.id).then((res)=>{
+        console.log('deleted');
+    }).catch((e)=>{
+        console.log('could not delete');
+    });
+    res.redirect('/products')
 })
 
 app.listen(3000,()=>{
