@@ -11,11 +11,11 @@
    <b>Price: </b><%= product.price %> <br>
    <b>Category: </b><%= product.category %> </p>
    <br>
-   <p><a href="/products">GO BACK HOME</a><br>
     Something wrong with my data? <a href="/products/<%= product._id %>/edit"><button class="ui blue button">Edit the Product</button></a></p><br>
     <form action="/products/<%= product._id %>/delete?_method=DELETE" method="POST">
        <button type="submit"class="ui red button">Delete Product</button>
     </form>
+    <a href="/products"><button class="tiny ui blue button">Go back home</button></a>
 </div>
 </div>
 <%- include('../partials/footer') %> 
