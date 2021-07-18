@@ -32,7 +32,10 @@ app.get('/products/:id',async(req,res)=>{
     });
 })
 
-
+app.get('/products/:id/edit',async (req,res)=>{
+    const product = await Product.findById(req.params.id);
+    res.render('products/edit',{product});
+})
 app.post('/products',async (req,res)=>{
     product = new Product({
         name: req.body.name,
