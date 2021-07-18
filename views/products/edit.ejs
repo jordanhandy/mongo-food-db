@@ -8,23 +8,23 @@
   </head>
   <body>
     <h1>Edit the <%= product.name %> Product</h1>
-    <form action="/products" method="post">
+    <form action="/products/<%= product._id %> " method="post">
       <label for="name">Product Name</label>
       <input
         type="text"
         name="name"
         id="name"
-        value="<%= product.name %> "
+        value="<%= product.name %>"
       />
       <label for="price">Unit Price</label>
-      <input type="number" name="price" id="price" step=".01" value="<%= product.price %> " />
+      <input type="number" name="price" id="price" step=".01" value="<%= product.price %>" />
       <label for="category">Select a Category</label>
       <select name="category" id="category">
         <option value="fruit">fruit</option>
         <option value="vegetable">vegetable</option>
         <option value="dairy">dairy</option>
       </select>
-      <button type="submit">Add Product</button>
+      <button type="submit">Edit this Product</button>
     </form>
   </body>
 </html>
