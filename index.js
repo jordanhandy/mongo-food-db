@@ -4,7 +4,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const { appendFileSync } = require("fs");
 const Product = require("./models/product");
-const methodOverride = require("method-override");
+const methodOverride = require("method-override"); // for overriding POST from forms for other API verbs
 
 mongoose
   .connect("mongodb://localhost:27017/farmStand", {
@@ -23,6 +23,8 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method")); // Use this value to force an unsupported API verb on a form
 
+// Filter based on query string or not, which 
+// products to include
 app.get("/products", async (req, res) => {
   const category = req.query.category;
   if (!category) {
@@ -48,6 +50,8 @@ app.get("/products/:id", async (req, res) => {
   });
 });
 
+// This is the page to get the form itself and place in the fields, the
+// current values as stored in the db
 app.get("/products/:id/edit", async (req, res) => {
   const product = await Product.findById(req.params.id);
   res.render("products/edit", { product });
@@ -64,6 +68,7 @@ app.post("/products", async (req, res) => {
   res.redirect(`/products/${product._id}`); // Redirect to specific page for created product
 });
 
+// Find by ID and update each of the params before saving back to db
 app.put("/products/:id", async (req, res) => {
   const product = await Product.findById(req.params.id);
   product.name = req.body.name;
