@@ -3,6 +3,8 @@
     <title><%= product.name %> </title>
 </head>
 <body>
+    <div class="ui one column stackable center aligned page grid">
+        <div class="column twelve wide">
     <h1><%= product.name %></h1>
     <p>This is the page for the product:  <%= product.name %> <br>
     Here are its properties: <br>
@@ -10,7 +12,10 @@
    <b>Category: </b><%= product.category %> </p>
    <br>
    <p><a href="/products">GO BACK HOME</a><br>
-    Something wrong with my data? <a href="/products/<%= product._id %>/edit"><button class="ui blue button">Edit the Product</button></a><br>
+    Something wrong with my data? <a href="/products/<%= product._id %>/edit"><button class="ui blue button">Edit the Product</button></a></p><br>
     <form action="/products/<%= product._id %>/delete?_method=DELETE" method="POST">
        <button type="submit"class="ui red button">Delete Product</button>
+    </form>
+</div>
+</div>
 <%- include('../partials/footer') %> 
