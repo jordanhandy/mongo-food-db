@@ -4,6 +4,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const { appendFileSync } = require("fs");
 const Product = require("./models/product");
+const Farm = require("./models/farm");
 const methodOverride = require("method-override"); // for overriding POST from forms for other API verbs
 
 mongoose
@@ -22,6 +23,33 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method")); // Use this value to force an unsupported API verb on a form
+
+// FARM ROUTES
+
+app.get("/farms",async(req,res)=>{
+  const farms = await Farm.find({});
+  res.render("farms/index",{
+    farms:farms
+  });
+})
+
+app.get("/farms/new",(req,res)=>{
+  res.render("farms/new");
+})
+
+app.post("/farms",async(req,res)=>{
+  const farm = new Farm({
+    name:req.body.name,
+    city:req.body.city,
+    email:req.body.email
+  });
+  await farm.save();
+  res.redirect(`/farms/${farm._id}`);
+})
+
+
+
+// PRODUCT ROUTES
 
 // Filter based on query string or not, which 
 // products to include
