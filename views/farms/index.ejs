@@ -1,0 +1,17 @@
+<%- include('../partials/header') %> 
+    <title>All Farms</title>
+</head>
+<body>
+    <div class="ui one column stackable center aligned page grid">
+    <div class="column twelve wide">
+    <h1>All Farms</h1>
+    <div class="ui list">
+    <% for( let farm of farms ) { %>
+        <div class="item"><a href="/farms/<%= farm._id %>"><%= farm.name %></a></div>
+    <% } %>
+    </div>
+    <br>
+    <a href="/farms/new"><button class="ui green button">Create a New Farm</button></a> 
+    <%- include('../partials/footer') %> 
+    </div>
+    </div>
