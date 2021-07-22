@@ -10,7 +10,13 @@ const farmSchema = new mongoose.Schema({
     email:{
         type:String,
         required:[true, 'Email is required']
-    }
+    },
+    products:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"Product"
+        }
+    ]
 
 })
 const Farm = mongoose.model("Farm",farmSchema);
