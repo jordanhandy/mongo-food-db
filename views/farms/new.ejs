@@ -1,0 +1,29 @@
+<%- include('../partials/header') %> 
+<div class="ui one column stackable center aligned page grid">
+    <div class="column twelve wide">
+    <title>New Farm Form</title>
+  </head>
+  <body>
+    <h1>Create a New Farm</h1>
+    <form class="ui form" action="/farms" method="post">
+        <div class="field">
+      <label for="name">Farm Name</label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Input Farm Name"
+      /></div>
+      <div class="field">
+      <label for="price">City</label>
+      <input type="text" name="city" id="city" placeholder="City Name"/></div>
+      <div class="field">
+      <label for="category">Email</label>
+      <input type="email" name="email" id="email" placeholder="email@email.com"/></div>
+      <button class="ui green button" type="submit">Add Product</button>
+    </form>
+    <br>
+    <a href="/products"><button class="miny ui blue button">Go back home</button></a>
+</div>
+</div>
+    <%- include('../partials/footer') %> 
