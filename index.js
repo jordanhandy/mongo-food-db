@@ -42,6 +42,11 @@ app.get("/products", async (req, res) => {
 app.get("/products/new", (req, res) => {
   res.render("products/new");
 });
+
+app.get("/farms/new",(req,res)=>{
+  res.render("farms/new");
+})
+
 app.get("/products/:id", async (req, res) => {
   const product = await Product.findById(req.params.id); // find by id, given id params
   console.log(product);
