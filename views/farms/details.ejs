@@ -10,6 +10,7 @@
     Here are its properties: <br>
    <b>City: </b><%= farm.city %> <br>
    <b>Email: </b><%= farm.email %> <br>
+   <b>Products:  </b><%= farm.products %><br> 
 
     Something wrong with my data? <a href="/farms/<%= farm._id %>/edit"><button class="ui blue button">Edit the Farm</button></a></p><br>
     <form action="/farms/<%= farm._id %>/delete?_method=DELETE" method="POST">
