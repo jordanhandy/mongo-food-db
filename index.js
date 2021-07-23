@@ -59,6 +59,20 @@ app.post("/farms",async(req,res)=>{
   res.redirect(`/farms/${farm._id}`);
 })
 
+app.post("/farms/:id/products",async(req,res)=>{
+  const farm = await Farm.findById(req.params.id).populate();
+  const product = await new Product({
+    name:req.body.name,
+    price:req.body.price,
+    category:req.body.category
+  });
+  farm.products.push(product);
+  product.farm = farm;
+  await product.save();
+  await farm.save();
+  res.redirect(`/farms/${req.params.id}`);
+})
+
 
 
 // PRODUCT ROUTES
