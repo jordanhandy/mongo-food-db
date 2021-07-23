@@ -10,7 +10,12 @@
     Here are its properties: <br>
    <b>City: </b><%= farm.city %> <br>
    <b>Email: </b><%= farm.email %> <br>
-   <b>Products:  </b><%= farm.products %><br> 
+   <h2>Products</h2>
+   <div class="ui list">
+       <% for( let product of farm.products) { %>
+        <div class= "ui item"><a href="/products/<%= product._id %> "><%= product.name %></a></div>
+       <% } %>
+   </div> 
 
    <a href="/farms/<%= farm._id %>/products/new"><button class="ui green button">Add a Product to this Farm</button></a> 
    Something wrong with my data? <a href="/farms/<%= farm._id %>/edit"><button class="ui blue button">Edit the Farm</button></a></p><br>
