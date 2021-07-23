@@ -102,7 +102,7 @@ app.get("/farms/new",(req,res)=>{
 })
 
 app.get("/products/:id", async (req, res) => {
-  const product = await Product.findById(req.params.id); // find by id, given id params
+  const product = await Product.findById(req.params.id).populate("farm"); // find by id, given id params
   console.log(product);
   res.render("products/details", {
     product: product,
