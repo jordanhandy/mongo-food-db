@@ -12,7 +12,8 @@
    <b>Email: </b><%= farm.email %> <br>
    <b>Products:  </b><%= farm.products %><br> 
 
-    Something wrong with my data? <a href="/farms/<%= farm._id %>/edit"><button class="ui blue button">Edit the Farm</button></a></p><br>
+   <a href="/farms/<%= farm._id %>/products/new"><button class="ui green button">Add a Product to this Farm</button></a> 
+   Something wrong with my data? <a href="/farms/<%= farm._id %>/edit"><button class="ui blue button">Edit the Farm</button></a></p><br>
     <form action="/farms/<%= farm._id %>/delete?_method=DELETE" method="POST">
        <button type="submit"class="ui red button">Delete Farm</button>
     </form><br>
