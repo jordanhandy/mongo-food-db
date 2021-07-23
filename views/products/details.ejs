@@ -11,8 +11,11 @@
    <b>Price: </b><%= product.price %> <br>
    <b>Category: </b><span class="ui label"><a href="/products?category=<%= product.category %>"><%= product.category %></a></span></p>
    <br>
-   <b>Farm:  </b><%= product.farm %></br> 
-    Something wrong with my data? <a href="/products/<%= product._id %>/edit"><button class="ui blue button">Edit the Product</button></a></p><br>
+   <h2>Farms</h2>
+   <div class="ui list">
+   <div class="ui item"><a href="/farms/<%= product.farm._id %>"><%= product.farm.name %></a></div>
+   </div>
+      Something wrong with my data? <a href="/products/<%= product._id %>/edit"><button class="ui blue button">Edit the Product</button></a></p><br>
     <form action="/products/<%= product._id %>/delete?_method=DELETE" method="POST">
        <button type="submit"class="ui red button">Delete Product</button>
     </form><br>
