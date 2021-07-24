@@ -24,7 +24,9 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method")); // Use this value to force an unsupported API verb on a form
 
-
+app.get("/",(req,res)=>{
+  res.render("index");
+})
 
 // FARM ROUTES
 
