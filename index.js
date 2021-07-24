@@ -33,6 +33,10 @@ saveUninitialized:false
 app.use(session(sessionOptions));
 app.use(flash());
 
+app.use((req,res,next)=>{
+  res.locals.messages = req.flash(success);
+  next();
+})
 
 app.get("/",(req,res)=>{
   res.render("index");
@@ -59,8 +63,7 @@ app.get("/farms/:id/products/new",(req,res)=>{
 app.get("/farms/:id",async(req,res)=>{
   const farm = await Farm.findById(req.params.id).populate("products");
   res.render("farms/details",{ 
-    farm:farm,
-    messages:req.flash('success') 
+    farm:farm 
   })
 })
 
