@@ -24,6 +24,8 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method")); // Use this value to force an unsupported API verb on a form
 
+
+
 // FARM ROUTES
 
 app.get("/farms",async(req,res)=>{
@@ -79,6 +81,7 @@ app.delete("/farms/:id/delete",async(req,res)=>{
     const delProduct = await Product.findByIdAndDelete(product._id);
     console.log("Deleted product:",delProduct);
   }
+  await Farm.deleteOne({_id: req.params.id});
   console.log("Deleted farm:",farm);
   res.redirect("/products");
 })
