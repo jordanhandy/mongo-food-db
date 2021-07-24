@@ -85,7 +85,7 @@ app.delete("/farms/:id/delete",async(req,res)=>{
   }
   await Farm.deleteOne({_id: req.params.id});
   console.log("Deleted farm:",farm);
-  res.redirect("/products");
+  res.redirect("/farms");
 })
 
 // PRODUCT ROUTES
