@@ -57,8 +57,6 @@ app.get("/farms/:id/products/new",(req,res)=>{
 })
 
 app.get("/farms/:id",async(req,res)=>{
-  req.flash('success','Farm has been saved!');
-  console.log(req.flash)
   const farm = await Farm.findById(req.params.id).populate("products");
   res.render("farms/details",{ 
     farm:farm,
@@ -73,6 +71,8 @@ app.post("/farms",async(req,res)=>{
     email:req.body.email
   });
   await farm.save();
+  req.flash('success','Farm has been saved!');
+  console.log(req.flash);
   res.redirect(`/farms/${farm._id}`);
 })
 
