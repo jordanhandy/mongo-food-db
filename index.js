@@ -58,9 +58,11 @@ app.get("/farms/:id/products/new",(req,res)=>{
 
 app.get("/farms/:id",async(req,res)=>{
   req.flash('success','Farm has been saved!');
+  console.log(req.flash)
   const farm = await Farm.findById(req.params.id).populate("products");
   res.render("farms/details",{ 
-    farm:farm 
+    farm:farm,
+    messages:req.flash('success') 
   })
 })
 
