@@ -1,12 +1,17 @@
-<%- include('../partials/header') %> 
+<%- include('./partials/header') %> 
     <title>Welcome to the Farm Stand</title>
 </head>
 <body>
     <div class="ui one column stackable center aligned page grid">
     <div class="column twelve wide">
-    <h1>Welcome to the Farm Stand Farms</h1>
-    <a href="/farms/new"><button class="ui green button">Create a New Farm</button></a> 
-    <a href="/products/new"><button class="ui green button">Create a New Standalone Product</button></a> 
-    <%- include('../partials/footer') %> 
+    <h1>Welcome to the Farm Stand</h1>
+    <p>Use the below options to either create a farm or a product.</p>
+    <div class="ui list">
+        <div class="ui item">If you create a Product first, this product will not be associated with a farm.</div>
+        <div class="ui item">If you create a Farm first, you can then associate it with a product.</div>
+    </div>
+    <a href="/farms/new"><button class="ui black button">Create a New Farm</button></a> 
+    <a href="/products/new"><button class="ui grey button">Create a New Standalone Product</button></a> 
+    <%- include('./partials/footer') %> 
     </div>
     </div>
