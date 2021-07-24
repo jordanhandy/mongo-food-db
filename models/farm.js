@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Product = require("./product");
 const farmSchema = new mongoose.Schema({
     name:{
         type:String,
@@ -18,6 +19,14 @@ const farmSchema = new mongoose.Schema({
         }
     ]
 
+})
+// This is a query middleware, so must come 'post' the query
+// so we know the data we're working with
+farmSchema.post('findOneAndDelete',async function(farm){
+    if(farm.products.length){
+        // Delete all products whose ID is in the products array
+        Product.deleteMany({_id:{$in: farm.products}});
+    }
 })
 const Farm = mongoose.model("Farm",farmSchema);
 module.exports = Farm;
