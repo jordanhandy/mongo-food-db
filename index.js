@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
+const session = require("express-session");
+const flash = require("connect-flash");
 const { appendFileSync } = require("fs");
 const Product = require("./models/product");
 const Farm = require("./models/farm");
@@ -23,6 +25,14 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method")); // Use this value to force an unsupported API verb on a form
+const sessionOptions = {
+  secret:'thisismysecret',
+resave: false,
+saveUninitialized:false
+}
+app.use(session(sessionOptions));
+app.use(flash());
+
 
 app.get("/",(req,res)=>{
   res.render("index");
